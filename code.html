@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep Safer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css"> <!-- For any custom styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans flex items-center justify-center min-h-screen p-4">
+
+    <div id="appContainer" class="bg-white w-full max-w-md rounded-lg shadow-xl overflow-hidden">
+
+        <!-- Signup/Login Page -->
+        <div id="signupPage" class="p-6">
+            <header class="text-center mb-6">
+                <p class="text-sm text-slate-500">App Title</p>
+                <h1 class="text-3xl font-bold text-blue-600 border border-slate-300 p-2 inline-block rounded">Keep Safer</h1>
+            </header>
+
+            <main>
+                <p class="text-lg text-center mb-6 text-slate-700">Welcome to our app</p>
+                <p class="text-center text-slate-600 font-semibold mb-4">Login / Signup</p>
+
+                <button id="googleSignInBtn" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center space-x-2 transition duration-150 mb-8">
+                    <i class="fab fa-google"></i>
+                    <span>Sign in with Google</span>
+                </button>
+
+                <div id="infoContent" class="text-center text-sm text-slate-600">
+                    <!-- Content for Privacy/About Us will be injected here or shown as modals -->
+                </div>
+            </main>
+
+            <footer class="mt-8 pt-4 border-t border-slate-200 text-center">
+                <p class="text-xs text-slate-500 mb-2">Navigation barcs for know about us:</p>
+                <a href="#" id="privacyLink" class="text-blue-500 hover:underline mx-2">Privacy Policy (checkout)</a>
+                <a href="#" id="aboutUsLink" class="text-blue-500 hover:underline mx-2">About Us (checkout)</a>
+            </footer>
+        </div>
+
+        <!-- Home/Dashboard Page (Initially Hidden) -->
+        <div id="homePage" class="p-6 hidden">
+            <header class="flex items-center justify-between mb-4 pb-2 border-b border-slate-200">
+                <button id="menuBtn" class="text-blue-600 hover:text-blue-800 text-lg">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+                <h2 class="text-2xl font-semibold text-slate-700">Hello!!</h2>
+                <button id="settingsBtn" class="text-blue-600 hover:text-blue-800 text-xl">
+                    <i class="fas fa-ellipsis-v"></i> <!-- Three vertical dots, common for settings -->
+                </button>
+            </header>
+
+            <main>
+                <p class="text-center text-lg text-slate-600 mb-6">Keep your phone safe.</p>
+
+                <div class="mb-6 text-center">
+                    <h3 class="text-xl font-semibold text-slate-700 mb-2">Categories</h3>
+                    <button id="addItemBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-2xl leading-none">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <p class="text-xs text-slate-500 mt-1">to add for check</p>
+                </div>
+
+                <div id="statusDisplay" class="text-center mb-4 p-3 rounded-md bg-slate-200 text-slate-700">
+                    Status: Neutral
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <button id="safeBtn" class="w-full bg-green-200 text-green-800 font-semibold py-3 px-2 rounded-md hover:bg-green-300 transition">
+                            <i class="fas fa-shield-alt"></i> Safe
+                        </button>
+                        <p class="text-xs text-slate-500 text-center mt-1">Shows safe items</p>
+                    </div>
+                    <div>
+                        <button id="unsafeBtn" class="w-full bg-red-200 text-red-800 font-semibold py-3 px-2 rounded-md hover:bg-red-300 transition">
+                            <i class="fas fa-exclamation-triangle"></i> Unsafe
+                        </button>
+                        <p class="text-xs text-slate-500 text-center mt-1">Shows unsafe items</p>
+                    </div>
+                </div>
+
+                <div class="text-center mb-6">
+                     <button id="checkBtn" class="w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition mb-2">
+                        <i class="fas fa-search"></i> Check
+                    </button>
+                    <p class="text-xs text-slate-500">Scan: links, files, apps, photos, videos, SMS, texts, etc.</p>
+                </div>
+
+
+                <div class="grid grid-cols-2 gap-4">
+                     <div>
+                        <button id="keepSafeBtn" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-2 rounded-md transition">
+                            <i class="fas fa-lock"></i> Keep Safe
+                        </button>
+                        <p class="text-xs text-slate-500 text-center mt-1">Store details for keep safe</p>
+                    </div>
+                    <div>
+                        <button id="historyBtn" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-2 rounded-md transition">
+                            <i class="fas fa-history"></i> History
+                        </button>
+                         <p class="text-xs text-slate-500 text-center mt-1">For checking history</p>
+                    </div>
+                </div>
+
+                <div id="keepSafeContent" class="mt-6 p-4 bg-slate-50 rounded-md hidden">
+                    <h4 class="font-semibold text-slate-700 mb-2">Kept Safe Items:</h4>
+                    <ul id="keptSafeList" class="list-disc list-inside text-sm text-slate-600">
+                        <!-- Kept safe items will be listed here -->
+                    </ul>
+                </div>
+
+                <div id="historyContent" class="mt-6 p-4 bg-slate-50 rounded-md hidden">
+                    <h4 class="font-semibold text-slate-700 mb-2">Scan History:</h4>
+                    <ul id="scanHistoryList" class="list-disc list-inside text-sm text-slate-600">
+                        <!-- Scan history items will be listed here -->
+                    </ul>
+                </div>
+            </main>
+        </div>
+
+        <!-- Modal for Info (Privacy/About Us) -->
+        <div id="infoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-md w-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modalTitle" class="text-xl font-semibold">Info</h3>
+                    <button id="closeModalBtn" class="text-red-500 hover:text-red-700 text-2xl">&times;</button>
+                </div>
+                <div id="modalBody" class="text-sm text-slate-600 max-h-80 overflow-y-auto">
+                    <!-- Modal content goes here -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
